@@ -1,6 +1,9 @@
 import Link from "next/link";
 
 async function gettickets() {
+
+await new Promise((resolve) => setTimeout(resolve, 5000)); // Simulate network delay 
+
   const res = await fetch("http://localhost:4000/tickets", {
     cache: "no-store",
   });

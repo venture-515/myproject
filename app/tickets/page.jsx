@@ -1,5 +1,7 @@
 import React from "react";
+import { Suspense } from "react";
 import Ticketlist from "./Ticketlist";
+import Loading from "../loading";
 
 export default function tickets() {
   return (
@@ -30,7 +32,9 @@ export default function tickets() {
         </section>
 
         <section className="grid gap-6">
-          <Ticketlist />
+          <Suspense fallback={<Loading />}>
+            <Ticketlist />
+          </Suspense>
         </section>
       </div>
     </main>

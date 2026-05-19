@@ -1,13 +1,14 @@
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 async function getticket(id) {
   const res = await fetch(`http://localhost:4000/tickets/${id}`, {
     cache: "no-store",
   });
   if (!res.ok) {
-    return null;
+    return notFound()
   }
-  return res.json();
+  return res.json()
 }
 
 function priorityBadge(priority) {
